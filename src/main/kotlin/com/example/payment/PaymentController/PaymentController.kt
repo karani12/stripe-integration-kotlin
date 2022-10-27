@@ -22,11 +22,15 @@ data class paymentPayload (
    var amount        : Int?              = null,
    var paymentMethod : ArrayList<String> = arrayListOf()
 )
+const val STRIPE_API_KEY  = ""
+const val STRIPE_WEBHOOK_SECRET = ""
+
+
 @RestController
 class PaymentController {
 
 // webhook secret obtained from stripe dashboard
-  val  endpointSecret : String = "whsec_6805d101d6e65fb81b3af8509b982c315c3dc0ae51052c81ab215698fcf71f4c"
+  val  endpointSecret : String = STRIPE_WEBHOOK_SECRET
 /*
 * Webhook is used to listen to events from stripe. This is used to listen to payment intent events.
 * The events are used to update the payment intent status.
@@ -81,9 +85,8 @@ class PaymentController {
     fun createPaymentIntent(@RequestBody payload: paymentPayload): Map<String, Any> {
 
 //  set up your stripe secret key obtained from your stripe dashboard (https://dashboard.stripe.com/test/apikeys)
-        println(payload.amount?.toLong())
 
-        Stripe.apiKey = "sk_test_51LrFM1K7lMXQ0gyz4xEK2R9uVHYnioQxlcpQFrXd2ppagVpaB3hoVqbAngDz4ErFOlM1Fo86s0O76i0833GZao8G00jAEU1OZD"
+        Stripe.apiKey = STRIPE_API_KEY
         val paymentIntentParams = PaymentIntentCreateParams.builder()
                 .setAmount(payload.amount?.toLong())
                 .setCurrency(payload.currency)

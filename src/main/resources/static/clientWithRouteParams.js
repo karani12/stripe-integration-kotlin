@@ -1,5 +1,6 @@
 //publishable key obtained from stripe dashboard
-var stripe = Stripe('pk_test_51LrFM1K7lMXQ0gyzSENceccBnibTyqnOtGEwzs7bjx7m9Y6znXCvHYwUGdilwbH1BdWmCCVqDeoTCX8KsbMbzTub00Xjrt2Uru');
+const PUBLIC_KEY = '';
+var stripe = Stripe(PUBLIC_KEY);
 
 const routeParams = window.location.pathname.split('/');
 const btn =  document.querySelector('#submit')
