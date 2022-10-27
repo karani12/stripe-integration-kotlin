@@ -28,7 +28,21 @@ Build the project using gradle and run the jar file.
 ./gradlew build
 gradle bootRun
 ```
+### using ngrok
+see docs [here](https://ngrok.com/docs/integrations/webhooks/stripe)
+### Using stripe to see events
+You can use stripe to see events. You can use the following command to see events
 
+```bash
+stripe listen --forward-to localhost:8080/payment/webhook
+```
+This will listen to events and forward them to the endpoint `/webhook` in the backend.
+### How to run
+- Clone the repo
+- Build the project
+- Run the project
+###USE THIS!!
+- Go to `http://localhost:8080/payment/usd/1000/card` to see the form with route parameters
 
 ### How to use
 There exists files in the `com.example.payment` package. 
