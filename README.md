@@ -5,7 +5,9 @@ This is a simple example of how to integrate stripe payment gateway in your webs
 ### Prequisites
 
 STRIPE_SECRET_KEY 
+
 STRIPE_PUBLISHABLE_KEY
+
 ENDPOINT_SECRET
 
 
@@ -43,6 +45,8 @@ This will listen to events and forward them to the endpoint `/webhook` in the ba
 - Run the project
 ###USE THIS!!
 - Go to `http://localhost:8080/payment/usd/1000/card` to see the form with route parameters
+
+Once here use cards [stripe testing cards](https://stripe.com/docs/testing)
 
 ### How to use
 There exists files in the `com.example.payment` package. 
