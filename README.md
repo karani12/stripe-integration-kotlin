@@ -2,6 +2,34 @@
 
 This is a simple example of how to integrate stripe payment gateway in your website.
 
+### Prequisites
+
+STRIPE_SECRET_KEY 
+STRIPE_PUBLISHABLE_KEY
+ENDPOINT_SECRET
+
+
+Get them on [Stripe Dashboard](https://dashboard.stripe.com/test/apikeys)
+and add them in the `/PaymentController/PyamentController.kt` file.
+```kotlin
+const val STRIPE_API_KEY  = ""
+const val STRIPE_WEBHOOK_SECRET = ""
+```
+
+Publishable key is used in frontend, find
+`/resources/static/clientWithRouteParameters.js` and add your publishable key there.
+```javascript
+const PUBLIC_KEY = "
+```
+
+### How to run
+Build the project using gradle and run the jar file.
+```bash
+./gradlew build
+gradle bootRun
+```
+
+
 ### How to use
 There exists files in the `com.example.payment` package. 
 The main focus should be based on how one chooses to implement.
@@ -86,9 +114,11 @@ Form parameters, meaning we serve the user a form with the following fields
  and More.
 
 This is not a likely usage but I considered it in this demo, but everything was hardcoded.
-
+### using ngrok
+see docs [here](https://ngrok.com/docs/integrations/webhooks/stripe)
 ### Using stripe to see events
 You can use stripe to see events. You can use the following command to see events
+
 ```bash
 stripe listen --forward-to localhost:8080/payment/webhook
 ```
@@ -97,7 +127,7 @@ This will listen to events and forward them to the endpoint `/webhook` in the ba
 - Clone the repo
 - Build the project
 - Run the project
-- Go to `http://localhost:8080/payment` to see the form
+###USE THIS!!
 - Go to `http://localhost:8080/payment/usd/1000/card` to see the form with route parameters
 
 ### How to test
